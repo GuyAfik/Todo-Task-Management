@@ -3,10 +3,10 @@ name: Backend
 on:
   push:
     branches: [ master ]
-    paths: src/grpc-example/server/**
+    paths: src/backend-service/**
   pull_request:
     branches: [ master ]
-    paths: src/grpc-example/server/**
+    paths: src/backend-service/**
 
 jobs:
   Run-Unit-Testing:
@@ -18,8 +18,8 @@ jobs:
       with:
         go-version: 1.16
     - name: Build go
-      working-directory: src/grpc-example/server
+      working-directory: src/backend-service
       run: go build -v ./...
     - name: Run backend Tests
-      working-directory: src/grpc-example/server
+      working-directory: src/backend-service
       run: go test -v ./...
