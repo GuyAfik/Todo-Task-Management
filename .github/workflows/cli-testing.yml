@@ -24,5 +24,4 @@ jobs:
         python -m pip install --upgrade pip
         pip install pipenv
         pipenv shell
-        pipenv sync
         python -m pytest -v .
