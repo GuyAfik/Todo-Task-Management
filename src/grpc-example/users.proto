@@ -1,0 +1,34 @@
+syntax = "proto3";
+package example.users;
+
+option go_package = "users.pb";
+
+
+message Test {
+    int32 score = 1;
+    string name = 2;
+}
+
+enum EyeColour {
+    UNKNOWN = 0;
+    GREEN = 1;
+    BLUE = 2;
+    BROWN = 3;
+}
+
+message UserRequest {
+    string name = 1;
+    float height = 2;
+    bool hasFacebook = 3;
+    EyeColour eyeColour = 4;
+    repeated Test test = 5;
+}
+
+message UserResponse {
+    string userMessage = 1;
+    int32 scoreAverage = 2;
+}
+
+service UserService {
+    rpc scoreAvg (UserRequest) returns (UserResponse) {};
+  }
