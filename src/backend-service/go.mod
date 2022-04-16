@@ -1,4 +1,4 @@
-module github.com/Todo-Task-Management/src/backend-service
+module github.com/Todo-Task-Management/server
 
 go 1.16
 
