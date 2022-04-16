@@ -28,8 +28,8 @@ This will also be the relative path to importing local packages.
 [How to import local files packages in go-lang](https://linguinecode.com/post/how-to-import-local-files-packages-in-golang)
 
 ## Creating go server code using proto CLI
-```protoc --go_out=server users.proto```
-```protoc --go_out=plugins=grpc:server users.proto```
+```protoc --go_out=server users.proto``` - creates the objects in which the gRPC will use.
+```protoc users.proto --go-grpc_out=server/``` - creates the actual service interface (API)
 
 ## Creating python client code using proto CLI
 ```python -m grpc_tools.protoc -I. --python_out=client --grpc_python_out=client users.proto```
