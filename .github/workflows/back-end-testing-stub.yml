@@ -5,10 +5,10 @@ name: Backend
 on:
   push:
     branches: [ master ]
-    paths: src/backend-service/**
+    paths-ignore: src/backend-service/**
   pull_request:
     branches: [ master ]
-    paths: src/backend-service/**
+    paths-ignore: src/backend-service/**
 
 jobs:
   Run-Unit-Testing:
