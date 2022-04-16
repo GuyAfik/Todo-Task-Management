@@ -23,4 +23,4 @@ jobs:
         cd src/cli-service
         pip install pipenv==2021.5.29
         pipenv install --dev
-        pipenv run pytes -v .
+        pipenv run pytest -v .
