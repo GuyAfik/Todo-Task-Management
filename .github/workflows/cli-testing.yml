@@ -19,7 +19,7 @@ jobs:
         with:
           python-version: '3.10'
     - name: Install python dependencies
-        run: |
-          cd src/cli-service
-          pipenv shell
-          python -m pytest -v .
+      run: |
+        cd src/cli-service
+        pipenv shell
+        python -m pytest -v .
