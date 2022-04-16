@@ -53,6 +53,10 @@ func main() {
 	users_pb.RegisterUserServiceServer(grpcServer, &server)
 
 	if err := grpcServer.Serve(listen); err != nil {
-		log.Fatal("failed to serve: %v", err)
+		log.Fatalf("failed to serve: %v", err)
 	}
+}
+
+func Sum(a, b int) int {
+	return a + b
 }
