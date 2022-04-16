@@ -3,10 +3,10 @@ name: Go
 on:
   push:
     branches: [ master ]
-    paths: src/grpc-example/server
+    paths: src/grpc-example/server/**
   pull_request:
     branches: [ master ]
-    paths: src/grpc-example/server
+    paths: src/grpc-example/server/**
 
 jobs:
 
