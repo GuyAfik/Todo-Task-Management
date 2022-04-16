@@ -1,0 +1,17 @@
+# This is a stub workflow to make the PRs which don't change backend service not to require the backend unit testing workflow
+# more info - https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/troubleshooting-required-status-checks#handling-skipped-but-required-checks
+name: Backend
+
+on:
+  push:
+    branches: [ master ]
+    paths-ignore: src/backend-service/**
+  pull_request:
+    branches: [ master ]
+    paths-ignore: src/backend-service/**
+
+jobs:
+  Run-Unit-Testing:
+    runs-on: ubuntu-latest
+    steps:
+    - run: 'echo "No backend unit-testing running required" '
