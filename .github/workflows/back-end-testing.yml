@@ -1,0 +1,22 @@
+on:
+  push:
+    paths:
+    - 'src/grpc-example/server/**'
+
+jobs:
+  run-backend-unit-tests:
+    runs-on: ubuntu-latest
+    - name: Checkout master
+        uses: actions/checkout@v3
+        with:
+          ref: master
+    - name: Set up Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: 1.16
+    - name: Build
+      working-directory: src/grpc-example/server
+      run: go build -v ./...
+    - name: Test
+      working-directory: src/grpc-example/server
+      run: go test -v ./...
