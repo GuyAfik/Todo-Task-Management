@@ -22,7 +22,7 @@ jobs:
       run: |
         cd src/cli-service
         pip install pipenv
-        pipenv shell
-      #  pipenv install --dev
     - name: Run unit-tests
-      run: pipenv run pytest -v .
+      run: |
+        pipenv install --dev
+        pipenv run pytest -v .
