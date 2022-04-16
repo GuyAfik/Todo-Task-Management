@@ -21,7 +21,7 @@ jobs:
     - name: Install python dependencies
       run: |
         cd src/cli-service
-        pip install pipenv --dev
-        pipenv install
+        pip install pipenv
+        pipenv install --dev
     - name: Run unit-tests
       run: pipenv run pytest -v .
