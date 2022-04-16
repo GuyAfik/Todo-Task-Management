@@ -38,9 +38,6 @@ func (s *Server) ScoreAvg(ctx context.Context, userRequest *users_pb.UserRequest
 
 }
 
-func (s *Server) mustEmbedUnimplementedUserServiceServer() {
-
-}
 
 func main() {
 	grpcServer := grpc.NewServer()
