@@ -1,22 +1,25 @@
+name: Go
+
 on:
   push:
-    paths:
-    - 'src/grpc-example/server/**'
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
-  run-backend-unit-tests:
+
+  build:
     runs-on: ubuntu-latest
-    - name: Checkout master
-        uses: actions/checkout@v3
-        with:
-          ref: golang_ut_workflow
+    steps:
+    - uses: actions/checkout@v2
+
     - name: Set up Go
       uses: actions/setup-go@v2
       with:
         go-version: 1.16
+
     - name: Build
-      working-directory: src/grpc-example/server
       run: go build -v ./...
+
     - name: Test
-      working-directory: src/grpc-example/server
       run: go test -v ./...
