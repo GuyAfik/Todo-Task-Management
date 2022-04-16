@@ -21,7 +21,6 @@ jobs:
     - name: Install python dependencies
       run: |
         cd src/cli-service
-        python -m pip install --upgrade pip
-        pip install pipenv
-        pipenv shell
-        python -m pytest -v .
+        pip install pipenv==2021.5.29
+        pipenv install --dev
+        pipenv run pytes -v .
