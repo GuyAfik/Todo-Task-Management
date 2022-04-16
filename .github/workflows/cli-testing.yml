@@ -9,7 +9,7 @@ on:
     paths: src/cli-service/**
 
 jobs:
-  Run-Unit-Testing-1:
+  Run-Unit-Testing:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
