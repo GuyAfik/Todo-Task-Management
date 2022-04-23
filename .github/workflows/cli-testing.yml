@@ -3,10 +3,10 @@ name: Cli
 on:
   push:
     branches: [ master ]
-    paths: src/cli-service/**
+    paths: src/cli/**
   pull_request:
     branches: [ master ]
-    paths: src/cli-service/**
+    paths: src/cli/**
 
 jobs:
   Run-Unit-Testing:
@@ -20,7 +20,7 @@ jobs:
         python-version: '3.10'
     - name: Install python dependencies & Run unit-tests
       run: |
-        cd src/cli-service
+        cd src/cli
         pip install pipenv
         pipenv install --dev
         pipenv run pytest -v .

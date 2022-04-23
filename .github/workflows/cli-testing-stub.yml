@@ -5,10 +5,10 @@ name: Cli
 on:
   push:
     branches: [ master ]
-    paths-ignore: src/cli-service/**
+    paths-ignore: src/cli/**
   pull_request:
     branches: [ master ]
-    paths-ignore: src/cli-service/**
+    paths-ignore: src/cli/**
 
 jobs:
   Run-Unit-Testing:
