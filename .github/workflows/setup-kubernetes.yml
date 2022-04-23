@@ -22,3 +22,7 @@ jobs:
         cd src/backend-service
         docker build -t todo-list-server .
         docker images 
+    - name: Deploy backend container to kubernetes
+      run: |
+        kubectl apply -f k8s/backend.yml
+        
