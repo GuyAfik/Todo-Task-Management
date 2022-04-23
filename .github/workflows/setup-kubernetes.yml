@@ -27,7 +27,7 @@ jobs:
         kubectl apply -f k8s/backend.yml
         kubectl get pods
         kubectl logs -l todo-list-server-app
-        kubectl wait --for=condition=ready pod -l app=todo-list-server-app 
+        kubectl wait --for=condition=ready pod -l app=todo-list-server-app --timeout=180s
         kubectl get pods
 
         
