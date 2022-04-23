@@ -1,0 +1,35 @@
+name: CI
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  setup-minikube:
+    runs-on: ubuntu-latest
+    name: Deploy Kubernetes
+    steps:
+    - uses: actions/checkout@v2
+    - name: Start minikube
+      uses: medyagh/setup-minikube@master
+    - name: Try the cluster
+      run: kubectl get pods -A
+    - name: Build backend image
+      run: |
+        pwd
+        ls -la
+        cd src/server
+        docker build -t todo-list-server .
+        docker images 
+    - name: Deploy backend container to kubernetes
+      run: |
+        kubectl apply -f k8s/server.yml
+        kubectl get pods
+        kubectl logs -l todo-list-server-app
+        sleep 60
+        kubectl get pods
+        kubectl wait --for=condition=ready pod -l app=todo-list-server-app --timeout=30s
+        
+
+        
