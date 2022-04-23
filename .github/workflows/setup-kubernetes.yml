@@ -8,7 +8,7 @@ on:
 jobs:
   setup-minikube:
     runs-on: ubuntu-latest
-    name: Deploy kubernetes
+    name: Deploy Kubernetes
     steps:
     - uses: actions/checkout@v2
     - name: Start minikube
@@ -25,4 +25,8 @@ jobs:
     - name: Deploy backend container to kubernetes
       run: |
         kubectl apply -f k8s/backend.yml
+        kubectl get pods
+        kubectl logs -l todo-list-server-app
+        kubectl get deployments 
+
         
