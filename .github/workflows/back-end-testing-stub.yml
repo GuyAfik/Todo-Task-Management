@@ -5,13 +5,13 @@ name: Backend
 on:
   push:
     branches: [ master ]
-    paths-ignore: src/backend-service/**
+    paths-ignore: src/server/**
   pull_request:
     branches: [ master ]
-    paths-ignore: src/backend-service/**
+    paths-ignore: src/server/**
 
 jobs:
   Run-Unit-Testing:
     runs-on: ubuntu-latest
     steps:
-    - run: 'echo "No backend unit-testing running required" '
+    - run: 'echo "No server unit-testing running required" '

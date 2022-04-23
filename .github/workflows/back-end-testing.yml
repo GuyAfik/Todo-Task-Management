@@ -3,10 +3,10 @@ name: Backend
 on:
   push:
     branches: [ master ]
-    paths: src/backend-service/**
+    paths: src/server/**
   pull_request:
     branches: [ master ]
-    paths: src/backend-service/**
+    paths: src/server/**
 
 jobs:
   Run-Unit-Testing:
@@ -18,8 +18,8 @@ jobs:
       with:
         go-version: 1.16
     - name: Build go
-      working-directory: src/backend-service
+      working-directory: src/server
       run: go build -v ./...
-    - name: Run backend Tests
-      working-directory: src/backend-service
+    - name: Run server Tests
+      working-directory: src/server
       run: go test -v ./...
