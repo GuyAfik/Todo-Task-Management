@@ -17,6 +17,8 @@ jobs:
       run: kubectl get pods -A
     - name: Build backend image
       run: |
+        pwd
+        ls -la
         cd src/backend-service
         docker build -t todo-list-server .
         docker images 
