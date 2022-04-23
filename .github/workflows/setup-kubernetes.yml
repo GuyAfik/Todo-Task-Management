@@ -8,10 +8,15 @@ on:
 jobs:
   setup-minikube:
     runs-on: ubuntu-latest
-    name: Deploy minikube kubernetes
+    name: Deploy kubernetes
     steps:
     - uses: actions/checkout@v2
     - name: Start minikube
       uses: medyagh/setup-minikube@master
     - name: Try the cluster
       run: kubectl get pods -A
+    - name: Build backend image
+      run: |
+        cd src/backend-service
+        docker build -t todo-list-server .
+        docker images 
