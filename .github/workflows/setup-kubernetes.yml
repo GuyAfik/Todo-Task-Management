@@ -19,12 +19,12 @@ jobs:
       run: |
         pwd
         ls -la
-        cd src/backend-service
+        cd src/server
         docker build -t todo-list-server .
         docker images 
     - name: Deploy backend container to kubernetes
       run: |
-        kubectl apply -f k8s/backend.yml
+        kubectl apply -f k8s/server.yml
         kubectl get pods
         kubectl logs -l todo-list-server-app
         sleep 60
